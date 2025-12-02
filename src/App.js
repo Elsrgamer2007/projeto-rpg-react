@@ -1,24 +1,34 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
+import Rodape from './components/Rodape';
+import Home from './pages/Home';
+import Catalogo from './pages/Catalogo';
+import Sobre from './pages/Sobre';
+import Contato from './pages/Contato';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <nav className="navbar">
+        <ul style={{ display: 'flex', justifyContent: 'center', gap: '20px', listStyle: 'none', padding: '20px', background: '#333' }}>
+          <li><Link to="/" style={{ color: 'white', textDecoration: 'none', fontWeight: 'bold' }}>HOME</Link></li>
+          <li><Link to="/catalogo" style={{ color: 'white', textDecoration: 'none', fontWeight: 'bold' }}>CATÁLOGO</Link></li>
+          <li><Link to="/sobre" style={{ color: 'white', textDecoration: 'none', fontWeight: 'bold' }}>SOBRE</Link></li>
+          <li><Link to="/contato" style={{ color: 'white', textDecoration: 'none', fontWeight: 'bold' }}>CONTATO</Link></li>
+        </ul>
+      </nav>
+
+      <div style={{ paddingBottom: '80px' }}> 
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/catalogo" element={<Catalogo />} />
+          <Route path="/sobre" element={<Sobre />} />
+          <Route path="/contato" element={<Contato />} />
+        </Routes>
+      </div>
+
+      <Rodape />
+    </Router>
   );
 }
 

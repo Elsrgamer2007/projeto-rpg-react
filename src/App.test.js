@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renderiza o menu Home', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
+  // Procura por um texto que REALMENTE existe no seu site agora
+  const linkElement = screen.getByText(/HOME/i); 
   expect(linkElement).toBeInTheDocument();
 });
